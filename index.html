@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081f2d">
+  <meta name="description" content="De 2 a 4 exploradores, percursos de 27 ou 54 casas e sete tipos de desafio. Um jogo educativo sobre o patrimônio cultural material do Brasil, pronto para jogar no mesmo computador.">
+  <title>Trilha do Patrimônio — Expedição Brasil</title>
+  <link rel="icon" href="assets/icones/compass.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="desafios.css">
+  <link rel="stylesheet" href="expedicao.css">
+  <script defer src="patrimonios.js"></script>
+  <script defer src="perguntas.js"></script>
+  <script defer src="desafios.js"></script>
+  <script defer src="jogadores.js"></script>
+  <script defer src="storage.js"></script>
+  <script defer src="ranking.js"></script>
+  <script defer src="mapa.js"></script>
+  <script defer src="revisao.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Ir para o conteúdo</a>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <header class="site-header">
+    <button class="brand" data-action="menu" aria-label="Trilha do Patrimônio, menu inicial"><span class="brand-symbol" data-icon="compass"></span><span>EXPEDIÇÃO BRASIL<small>TRILHA DO PATRIMÔNIO</small></span></button>
+    <nav class="main-nav" aria-label="Menu principal"><button data-action="instructions">Como jogar</button><button data-action="gallery">Galeria de patrimônios</button><button data-action="ranking">Ranking <span data-icon="trophy"></span></button></nav>
+    <div class="header-actions"><button class="icon-btn" data-action="sound" id="sound-toggle" aria-label="Desativar sons" title="Ativar ou desativar sons"><span data-icon="sound"></span></button><button class="icon-btn" data-action="settings" aria-label="Configurações" title="Configurações"><span data-icon="settings"></span></button><button class="icon-btn mobile-menu-button" data-action="open-menu" aria-label="Abrir menu"><span data-icon="menu"></span></button><span class="edition">EDIÇÃO ESCOLAR <b>03</b></span></div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="home" class="screen home-screen active" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="mini-dot"></span> O BRASIL TEM MUITAS HISTÓRIAS. VAMOS DESCOBRI-LAS?</div>
+        <h1 id="home-title">Trilha do<br><em>Patrimônio.</em></h1>
+        <div class="hero-subtitle"><span></span>UMA AVENTURA PELA HISTÓRIA DO BRASIL.</div>
+        <p class="hero-description">Reúna sua turma, lance o dado e viaje por um país de descobertas. Cada estado, uma nova história. Sete desafios para descobrir, conectar e preservar. Escolha o percurso e viva essa história com a sua turma.</p>
+        <div class="hero-buttons"><button class="btn btn-gold btn-large" data-action="setup"><span data-icon="dice"></span> Iniciar partida <span data-icon="arrow"></span></button><button class="btn btn-ghost" data-action="resume" id="resume-home" hidden><span data-icon="play"></span> Continuar partida</button></div>
+        <div class="hero-stats"><div><b>2–4</b><span>EXPLORADORES</span></div><div><b>27</b><span>ESTADOS E DF*</span></div><div><b>27 / 54</b><span>CASAS · RÁPIDO / LONGO</span></div><div><b>7</b><span>TIPOS DE DESAFIO</span></div></div>
+        <small class="stats-note">*26 estados e o Distrito Federal. Uma só expedição.</small>
+      </div>
+      <div class="hero-visual" aria-label="Mapa do Brasil e fotografias dos patrimônios">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-map" id="hero-map"></div>
+        <div class="map-title"><span class="tag-line"></span> TERRITÓRIO DE DESCOBERTAS <small>BASE CARTOGRÁFICA · IBGE</small></div>
+        <div class="compass-rose" aria-hidden="true"><span>N</span><i data-icon="compass"></i></div>
+        <button class="postcard postcard-rio" data-action="heritage" data-uf="RJ"><img src="assets/imagens/RJ.jpg" alt="Cristo Redentor no Rio de Janeiro"><span class="postcard-top">22°57′ S · 43°12′ O</span><span class="postcard-bottom"><small>RIO DE JANEIRO · RJ</small><b>Cristo Redentor</b><i data-icon="external"></i></span></button>
+        <button class="postcard postcard-sc" data-action="heritage" data-uf="SC"><img src="assets/imagens/SC.jpg" alt="Ponte Hercílio Luz em Florianópolis"><span class="postcard-bottom"><small>SANTA CATARINA · SC</small><b>Ponte Hercílio Luz</b><i data-icon="external"></i></span></button>
+        <span class="stamp">PATRIMÔNIO<br><b>BRASILEIRO</b><br>EXPLORE · CONHEÇA · PRESERVE</span>
+      </div>
+      <div class="expedition-strip"><div class="strip-intro"><span data-icon="route"></span><p>Sua próxima grande<br><b>descoberta começa aqui.</b></p></div><div><span class="step-index">01</span><p><b>Explore o mapa</b><small>Percorra as 27 unidades federativas.</small></p></div><div><span class="step-index">02</span><p><b>Desafie seus conhecimentos</b><small>Supere minijogos, some pontos e avance.</small></p></div><div><span class="step-index">03</span><p><b>Colecione histórias</b><small>Complete seu álbum de descobertas.</small></p></div><button data-action="instructions" aria-label="Saiba como jogar"><span data-icon="arrow"></span></button></div>
+    </section>
+
+    <section id="setup" class="screen subpage" aria-labelledby="setup-title">
+      <div class="page-heading"><button class="back-link" data-action="menu"><span data-icon="arrow-left"></span> VOLTAR AO MENU</button><div class="eyebrow">PREPARATIVOS DA EXPEDIÇÃO</div><h2 id="setup-title">Sua turma. Sua <em>aventura.</em></h2><p>Escolha o percurso, monte a equipe e prepare-se para descobrir o Brasil.</p></div>
+      <form id="setup-form">
+        <fieldset class="route-picker"><legend><span>01</span> ESCOLHA O TAMANHO DA VIAGEM</legend><div class="route-options">
+          <label class="route-option"><input type="radio" name="route-length" value="quick"><span class="route-art"><span data-icon="compass"></span><b>27</b><small>CASAS</small></span><span class="route-copy"><small>PARA UMA AVENTURA MAIS CURTA</small><strong>Jogo rápido</strong><span>Uma casa em cada estado e no DF. O Brasil inteiro, com menos passos.</span></span><i class="route-radio" aria-hidden="true"></i></label>
+          <label class="route-option"><input type="radio" name="route-length" value="long" checked><span class="route-art"><span data-icon="route"></span><b>54</b><small>CASAS</small></span><span class="route-copy"><small>A EXPEDIÇÃO ORIGINAL</small><strong>Jogo longo</strong><span>Duas casas por unidade federativa. Mais tempo para explorar e colecionar histórias.</span></span><i class="route-radio" aria-hidden="true"></i></label>
+        </div><p class="route-note">Mesmas regras e conteúdos. A quantidade de casas muda; a duração depende das jogadas da turma.</p></fieldset>
+        <div class="setup-section-label"><span>02</span> MONTE A SUA EXPEDIÇÃO</div>
+        <div class="setup-options"><fieldset class="player-count-field"><legend>QUANTAS PESSOAS VÃO JOGAR?</legend><div class="player-count-buttons" role="group" aria-label="Quantidade de jogadores"><button type="button" data-action="player-count" data-count="2" aria-pressed="false">2 <small>jogadores</small></button><button type="button" data-action="player-count" data-count="3" aria-pressed="false">3 <small>jogadores</small></button><button type="button" data-action="player-count" data-count="4" aria-pressed="true" class="selected">4 <small>jogadores · padrão</small></button></div></fieldset><label class="play-style-label">DESAFIOS DA PARTIDA<select id="play-style"><option value="mixed">Aventura completa · 7 tipos de desafio</option><option value="quiz">Clássico · 135 perguntas</option></select><small>Os desafios se alternam nos turnos de cada jogador.</small></label></div>
+        <div class="challenge-lineup"><span>📚 Quiz</span><span>🧩 Quebra-cabeça</span><span>🃏 Memória</span><span>🗺️ Cartógrafo</span><span>🛡️ Guardiões</span><span>🔗 Conexões</span><span>🧭 Rota da memória</span></div>
+        <div id="player-setup" class="setup-grid"></div><p class="form-error" id="setup-error" role="alert"></p><div class="setup-bottom"><p><span data-icon="info"></span> Escolha uma cor diferente para cada peão.<br><small>Todos começam no Rio Grande do Sul e seguem até Brasília.</small></p><button class="btn btn-gold btn-large" type="submit">Começar partida <span data-icon="arrow"></span></button></div>
+      </form>
+    </section>
+
+    <section id="intro" class="screen intro-screen" aria-labelledby="intro-title">
+      <div class="intro-orbit" aria-hidden="true"></div><div class="intro-scenery" aria-hidden="true"><img src="assets/imagens/SC.jpg" alt=""><img src="assets/imagens/AM.jpg" alt=""><img src="assets/imagens/DF.jpg" alt=""></div>
+      <div class="intro-content"><div class="eyebrow intro-reveal">UM TRABALHO FEITO PARA CONECTAR HISTÓRIAS</div><div class="intro-symbol" data-icon="compass"></div><h2 id="intro-title" tabindex="-1" class="intro-reveal">O Brasil guarda histórias.<br><em>A próxima é de vocês.</em></h2><p class="intro-objective intro-reveal">Conhecer o patrimônio cultural material do Brasil<br>e descobrir por que preservá-lo é cuidar da nossa memória.</p><div class="intro-team"><span>TRABALHO APRESENTADO POR</span><div id="intro-members"></div></div><div class="intro-wish"><span class="mini-dot"></span><p id="intro-greeting"></p><strong>Boa sorte e uma ótima expedição!</strong></div><div class="intro-controls"><span id="intro-route"></span><button class="btn btn-gold" data-action="finish-intro">Vamos explorar <span data-icon="arrow"></span></button></div><div class="intro-progress" aria-hidden="true"><i></i></div><small class="intro-auto">A aventura começa automaticamente em instantes.</small></div>
+    </section>
+
+    <section id="game" class="screen game-screen" aria-label="Tabuleiro da expedição">
+      <div class="game-top"><div><span class="eyebrow"><span class="mini-dot"></span> EXPEDIÇÃO EM ANDAMENTO</span><h2>O Brasil é o seu <em>tabuleiro.</em></h2></div><div class="game-toolbar"><span class="game-mode-badge" id="game-mode-badge">LONGO · 54 CASAS</span><span class="round-badge">RODADA <b id="round-number">01</b></span><button class="btn btn-small btn-ghost" data-action="save" id="save-game"><span data-icon="save"></span> Salvar</button><button class="icon-btn" data-action="fullscreen" aria-label="Tela cheia" title="Tela cheia"><span data-icon="expand"></span></button><button class="icon-btn" data-action="game-menu" aria-label="Pausar partida" title="Menu da partida"><span data-icon="pause"></span></button></div></div>
+      <div class="game-layout">
+        <div class="board-panel"><div class="board-caption"><span><span class="mini-dot"></span> TRILHA DA EXPEDIÇÃO</span><button class="text-button" data-action="focus">Localizar jogador <span data-icon="locate"></span></button></div><div class="board-map" id="board-map"></div><div class="journey-hud" id="journey-hud" role="status" aria-live="polite" hidden></div><div id="arrival-panel" class="arrival-panel" hidden></div><div class="board-compass" aria-hidden="true"><span>N</span><i data-icon="compass"></i></div><div class="map-controls"><button class="icon-btn" data-action="zoom-in" aria-label="Aproximar mapa">+</button><button class="icon-btn" data-action="zoom-out" aria-label="Afastar mapa">−</button><button class="icon-btn" data-action="zoom-reset" aria-label="Ver o Brasil inteiro" title="Ver o Brasil inteiro"><span data-icon="expand"></span></button></div><div class="map-key"><span><i class="key-normal"></i> Casa</span><span><i class="key-special"></i> Carta especial</span><span class="key-hint">Arraste para explorar · + para ampliar</span></div><div class="board-bottom"><div><small id="current-state-label">ESTADO ATUAL</small><strong id="current-state">Rio Grande do Sul</strong></div><div class="journey-progress"><div><span id="progress-label">CASA 01 / 54</span><span id="remaining-label">53 casas restantes</span></div><div class="progress-track"><i id="progress-bar"></i></div></div><div class="finish-label"><span data-icon="flag"></span><small>DESTINO FINAL</small><b>Brasília · DF</b></div></div></div>
+        <aside class="game-sidebar"><div class="turn-panel" id="turn-panel"><div class="turn-caption"><span class="mini-dot"></span> É SUA VEZ, EXPLORADOR</div><div class="activity-preview" id="activity-preview"></div><div class="active-player" id="active-player"></div><div class="die-wrap"><div class="die-scene"><div class="dice" id="dice" role="img" aria-label="Dado, aguardando lançamento"><div class="die-face front" data-face="1"></div><div class="die-face back" data-face="6"></div><div class="die-face right" data-face="3"></div><div class="die-face left" data-face="4"></div><div class="die-face top" data-face="2"></div><div class="die-face bottom" data-face="5"></div></div></div><p id="dice-hint">Seu próximo destino está a um dado de distância.</p></div><button class="btn btn-gold roll-button" data-action="roll" id="roll-btn"><span data-icon="dice"></span> LANÇAR DADO <kbd>↵</kbd></button><span class="turn-rule">Desafio concluído? +2 casas. Não conseguiu? −2.</span></div><div class="players-heading"><h3>Os exploradores</h3><button class="text-button" data-action="live-ranking">Ver ranking <span data-icon="arrow"></span></button></div><div class="player-panels" id="player-panels"></div><button class="album-button" data-action="album"><span data-icon="book"></span><span>Álbum de descobertas<small id="album-summary">A história que você já encontrou</small></span><span data-icon="arrow"></span></button></aside>
+      </div><div class="travel-log"><span data-icon="route"></span><b>DIÁRIO DE BORDO</b><span id="last-log" aria-live="polite">A expedição vai começar.</span><button class="text-button" data-action="log">Ver diário <span data-icon="arrow"></span></button></div>
+    </section>
+
+    <section id="gallery" class="screen subpage" aria-labelledby="gallery-title"><div class="page-heading"><button class="back-link" data-action="back"><span data-icon="arrow-left"></span> VOLTAR</button><div class="eyebrow">ACERVO DA EXPEDIÇÃO</div><h2 id="gallery-title">Histórias que o tempo <em>preservou.</em></h2><p>27 patrimônios materiais. Um convite para conhecer e cuidar do que é nosso.</p></div><div class="gallery-toolbar"><label class="search-field"><span data-icon="search"></span><input id="gallery-search" type="search" placeholder="Busque um patrimônio, cidade ou estado…" aria-label="Buscar patrimônio"></label><select id="region-filter" aria-label="Filtrar por região"><option value="">Todas as regiões</option><option>Norte</option><option>Nordeste</option><option>Centro-Oeste</option><option>Sudeste</option><option>Sul</option></select><select id="state-filter" aria-label="Filtrar por estado"><option value="">Todos os estados e DF</option></select></div><div class="gallery-count" id="gallery-count"></div><div id="gallery-grid" class="gallery-grid"></div></section>
+
+    <section id="victory" class="screen victory-screen" aria-labelledby="victory-title"><div class="eyebrow">TODOS CHEGARAM. A HISTÓRIA CONTINUA.</div><div class="victory-trophy" data-icon="trophy"></div><h2 id="victory-title">Uma expedição.<br><em>Grandes descobertas.</em></h2><p id="champion-name"></p><div id="podium" class="podium"></div><div id="victory-stats" class="victory-stats"></div><p class="tie-note">Classificação por pontos, acertos, menos erros e ordem de chegada.</p><div id="learning-review" class="learning-review"></div><div class="victory-actions"><button class="btn btn-gold" data-action="replay"><span data-icon="dice"></span> Jogar novamente</button><button class="btn btn-ghost" data-action="menu">Voltar ao menu</button></div></section>
+  </main>
+  <footer class="site-footer"><span>FEITO PARA EXPLORAR. CRIADO PARA APRENDER.<small class="footer-team">Cristian Semler · Davi Dario · Kauan · Hiago · Ana Laura</small></span><div><button data-action="about">Sobre o projeto</button><span>·</span><button data-action="credits">Fontes e créditos</button><span class="offline-badge"><span class="mini-dot"></span> PARTIDA LOCAL · SEM LOGIN</span></div></footer>
+  <dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+  <div id="turn-banner" class="turn-banner" role="status" aria-live="polite"></div>
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <noscript>Ative o JavaScript do navegador para jogar Trilha do Patrimônio.</noscript>
+</body>
+</html>
